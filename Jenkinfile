@@ -29,7 +29,7 @@ pipeline {
         stage('build db/push-registry') {
             steps {
                 sh '''#!/usr/bin/env bash
-                cd mariadb
+                cd mysql
                 docker login -u ${DOCKER_REGISTRY_USERNAME} -p ${DOCKER_REGISTRY_PASSWORD}
                 docker build --tag "${REGISTRY_NAME}/mysql-tindd:${BUILD_NUMBER}" .
                 docker push "${REGISTRY_NAME}/mysql-tindd:${BUILD_NUMBER}"
