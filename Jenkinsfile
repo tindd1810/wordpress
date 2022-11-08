@@ -21,8 +21,8 @@ pipeline {
                 sh '''#!/usr/bin/env bash
                 cd wordpress
                 docker login -u ${DOCKER_REGISTRY_USERNAME} -p ${DOCKER_REGISTRY_PASSWORD}
-                docker build --tag "${REGISTRY_NAME}/wordpress-tindd:${BUILD_NUMBER}" .
-                docker push "${REGISTRY_NAME}/wordpress-tindd:${BUILD_NUMBER}"
+                docker build --tag ${REGISTRY_NAME}/wordpress-tindd .
+                docker push ${REGISTRY_NAME}/wordpress-tindd
                 '''
             }
         }
@@ -31,8 +31,8 @@ pipeline {
                 sh '''#!/usr/bin/env bash
                 cd mysql
                 docker login -u ${DOCKER_REGISTRY_USERNAME} -p ${DOCKER_REGISTRY_PASSWORD}
-                docker build --tag "${REGISTRY_NAME}/mysql-tindd:${BUILD_NUMBER}" .
-                docker push "${REGISTRY_NAME}/mysql-tindd:${BUILD_NUMBER}"
+                docker build --tag ${REGISTRY_NAME}/mysql-tindd .
+                docker push ${REGISTRY_NAME}/mysql-tindd
                 '''
             }
         }
